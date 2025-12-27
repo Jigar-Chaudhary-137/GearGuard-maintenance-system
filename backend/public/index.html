@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise System - Dashboard</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= LOGIN PAGE ================= -->
+<section id="login-page">
+    <div class="login-card">
+        <div class="login-header">
+            <h2>Admin Portal</h2>
+            <p>Please sign in to continue</p>
+        </div>
+
+        <form id="login-form">
+            <div class="form-group">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-full">
+                Sign In <i class="fas fa-arrow-right"></i>
+            </button>
+        </form>
+    </div>
+</section>
+
+<!-- ================= APP LAYOUT ================= -->
+<div id="app-layout" class="app-container hidden">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a class="sidebar-brand">
+                <div class="brand-icon"></div>
+                <span>Enterprise OS</span>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-item active" data-page="dashboard">
+                <i class="fas fa-home"></i><span>Dashboard</span>
+            </div>
+
+            <div class="nav-item" data-page="users">
+                <i class="fas fa-users"></i><span>User Management</span>
+            </div>
+
+            <div class="nav-item" data-page="requests">
+  <i class="fas fa-wrench"></i><span>Requests</span>
+</div>
+
+
+            <div class="nav-item" data-page="data-listing">
+                <i class="fas fa-table"></i><span>Data Listing</span>
+            </div>
+
+            <div class="nav-item" data-page="reports">
+                <i class="fas fa-chart-bar"></i><span>Reports</span>
+            </div>
+            <div class="nav-item" data-page="calendar">
+                     <i class="fas fa-calendar"></i><span>Calendar</span>
+                </div>
+
+
+            <div class="nav-item" data-page="settings">
+                <i class="fas fa-cog"></i><span>Settings</span>
+            </div>
+            <div class="nav-item" data-page="admin">
+             <i class="fas fa-shield-alt"></i>
+             <span>Admin Panel</span>
+            </div>
+
+            
+        </nav>
+
+        <div class="nav-item" id="btn-logout">
+            <i class="fas fa-sign-out-alt"></i><span>Logout</span>
+        </div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+        <header class="top-navbar">
+            <div class="nav-left">
+                <button id="sidebar-toggle" class="toggle-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h1 id="page-title" class="page-title">Dashboard</h1>
+            </div>
+        </header>
+
+        <div class="content-area">
+            <!-- ================= SETTINGS PAGE ================= -->
+<section id="page-settings" class="page-section hidden">
+
+  <!-- Header -->
+  <div class="card">
+    <h3 class="card-title">Settings</h3>
+    <p class="text-muted">Manage your account and application preferences</p>
+  </div>
+
+  <!-- PROFILE SETTINGS -->
+  <div class="card">
+    <h3 class="card-title">
+      <i class="fas fa-user"></i> Profile Settings
+    </h3>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem;">
+      <div>
+        <label class="form-label">Full Name</label>
+        <input class="form-control" value="John Doe">
+      </div>
+
+      <div>
+        <label class="form-label">Email</label>
+        <input class="form-control" value="john.doe@company.com">
+      </div>
+
+      <div>
+        <label class="form-label">Role</label>
+        <input class="form-control" value="Maintenance Manager" disabled>
+      </div>
+
+      <div>
+        <label class="form-label">Department</label>
+        <input class="form-control" value="Facilities">
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTIFICATION SETTINGS -->
+  <div class="card">
+    <h3 class="card-title">
+      <i class="fas fa-bell"></i> Notifications
+    </h3>
+
+    <div class="settings-row">
+      <span>Email Notifications</span>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="settings-row">
+      <span>Push Notifications</span>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="settings-row">
+      <span>New Request Alerts</span>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="settings-row">
+      <span>Status Change Alerts</span>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="settings-row">
+      <span>Overdue Alerts</span>
+      <label class="switch">
+        <input type="checkbox" checked>
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
+
+  <!-- SYSTEM SETTINGS -->
+  <div class="card">
+    <h3 class="card-title">
+      <i class="fas fa-database"></i> System Configuration
+    </h3>
+
+    <div class="settings-row">
+      <div>
+        <strong>Database Status</strong>
+        <p class="text-muted">Connected to local storage</p>
+      </div>
+      <span class="status success">Connected</span>
+    </div>
+
+    <div class="settings-row">
+      <div>
+        <strong>API Integration</strong>
+        <p class="text-muted">Backend services</p>
+      </div>
+      <button class="btn btn-outline">Configure</button>
+    </div>
+  </div>
+
+  <!-- SAVE -->
+  <div style="text-align:right">
+    <button class="btn btn-primary" onclick="saveSettings()">
+      <i class="fas fa-save"></i> Save Changes
+    </button>
+  </div>
+
+</section>
+
+            <!-- ================= ADMIN PANEL ================= -->
+           <section id="page-admin" class="page-section hidden">
+
+                 <div class="card">
+            <div class="card-header">
+            <h3 class="card-title">Admin Panel</h3>
+            </div>
+
+             <div class="stats-grid">
+                <div class="stat-card">
+                <p class="stat-title">Total Users</p>
+                  <h3>12</h3>
+                    </div>
+
+                 <div class="stat-card warning">
+                <p class="stat-title">Pending Requests</p>
+            <h3>5</h3>
+             </div>
+
+      <div class="stat-card success">
+        <p class="stat-title">System Health</p>
+        <h3>Good</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">System Controls</h3>
+
+    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem;">
+      <button class="btn btn-primary">
+        <i class="fas fa-user-plus"></i> Add User
+      </button>
+
+      <button class="btn btn-outline">
+        <i class="fas fa-database"></i> Backup Database
+      </button>
+
+      <button class="btn btn-outline">
+        <i class="fas fa-bell"></i> Manage Alerts
+      </button>
+
+      <button class="btn btn-outline">
+        <i class="fas fa-cogs"></i> System Settings
+      </button>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 class="card-title">Audit Logs</h3>
+    <table class="data-table">
+      <tr>
+        <th>User</th>
+        <th>Action</th>
+        <th>Time</th>
+      </tr>
+      <tr>
+        <td>Admin</td>
+        <td>Updated System Config</td>
+        <td>10:45 AM</td>
+      </tr>
+      <tr>
+        <td>Admin</td>
+        <td>Added New Technician</td>
+        <td>09:20 AM</td>
+      </tr>
+    </table>
+  </div>
+
+</section>
+
+                 <!-- ================= CALENDAR PAGE ================= -->
+<section id="page-calendar" class="page-section hidden">
+
+  <!-- Header -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <h3 class="card-title">Maintenance Calendar</h3>
+      <button class="btn btn-primary">
+        <i class="fas fa-plus"></i> Schedule Maintenance
+      </button>
+    </div>
+  </div>
+
+  <!-- Calendar -->
+  <div class="card">
+    <div class="calendar-header">
+      <button id="prevMonth" class="btn btn-outline">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <h3 id="calendarTitle"></h3>
+
+      <button id="nextMonth" class="btn btn-outline">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+      <button id="todayBtn" class="btn btn-outline">Today</button>
+    </div>
+
+    <div class="calendar-grid" id="calendarGrid"></div>
+  </div>
+
+  <!-- Upcoming -->
+  <div class="card">
+    <h3 class="card-title">Upcoming Scheduled Maintenance</h3>
+    <div id="upcomingList"></div>
+  </div>
+
+</section>
+
+
+
+            <!-- ================= DASHBOARD ================= -->
+            <section id="page-dashboard" class="page-section">
+
+                <!-- DASHBOARD STATS -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>12</h3>
+                            <p>Total Users</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>8</h3>
+                            <p>Maintenance Requests</p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>3</h3>
+                            <p>Upcoming Jobs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== KANBAN SUMMARY ===== -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <p class="stat-title">Total Requests</p>
+                        <h3 id="stat-total">0</h3>
+                    </div>
+
+                    <div class="stat-card success">
+                        <p class="stat-title">Completed</p>
+                        <h3 id="stat-completed">0</h3>
+                    </div>
+
+                    <div class="stat-card warning">
+                        <p class="stat-title">Open</p>
+                        <h3 id="stat-open">0</h3>
+                    </div>
+                </div>
+
+                <!-- ===== KANBAN BOARD ===== -->
+                <div class="kanban-board">
+
+                    <div class="kanban-column">
+                        <div class="kanban-header new">New</div>
+                        <div class="kanban-list" id="new"></div>
+                    </div>
+
+                    <div class="kanban-column">
+                        <div class="kanban-header progress">In Progress</div>
+                        <div class="kanban-list" id="in_progress"></div>
+                    </div>
+
+                    <div class="kanban-column">
+                        <div class="kanban-header repaired">Repaired</div>
+                        <div class="kanban-list" id="repaired"></div>
+                    </div>
+
+                    <div class="kanban-column">
+                        <div class="kanban-header scrap">Scrap</div>
+                        <div class="kanban-list" id="scrap"></div>
+                    </div>
+
+                </div>
+
+            </section>
+            <section id="page-users" class="page-section hidden">
+  <div class="card">
+    <h3 class="card-title">User Management</h3>
+    <table class="data-table">
+      <tr><th>Name</th><th>Email</th><th>Role</th></tr>
+      <tr><td>Ravi</td><td>ravi@company.com</td><td>Technician</td></tr>
+      <tr><td>Neha</td><td>neha@company.com</td><td>Manager</td></tr>
+    </table>
+  </div>
+</section>
+<section id="page-data-entry" class="page-section hidden">
+  <div class="card">
+    <h3 class="card-title">New Maintenance Request</h3>
+    <input class="form-control" placeholder="Equipment Name">
+    <br><br>
+    <textarea class="form-control" placeholder="Problem Description"></textarea>
+    <br><br>
+    <button class="btn btn-primary">Submit</button>
+  </div>
+</section>
+<section id="page-data-listing" class="page-section hidden">
+  <div class="card">
+    <h3 class="card-title">Maintenance Requests</h3>
+    <table class="data-table">
+      <tr><th>Equipment</th><th>Type</th><th>Status</th></tr>
+      <tr><td>Printer</td><td>Corrective</td><td>In Progress</td></tr>
+      <tr><td>CNC</td><td>Preventive</td><td>Scheduled</td></tr>
+    </table>
+  </div>
+</section>
+
+
+
+            <!-- ================= REPORTS ================= -->
+            <section id="page-reports" class="page-section hidden">
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 id="totalRequests">0</h3>
+                        <p>Total Requests</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="completionRate">0%</h3>
+                        <p>Completion Rate</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="openRequests">0</h3>
+                        <p>Open Requests</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Requests per Team</h3>
+                    <canvas id="teamChart"></canvas>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Requests by Category</h3>
+                    <canvas id="categoryChart"></canvas>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Monthly Trend</h3>
+                    <canvas id="trendChart"></canvas>
+                </div>
+
+                <div class="card">
+                    <h3 class="card-title">Status Distribution</h3>
+                    <canvas id="statusChart"></canvas>
+                </div>
+
+            </section>
+            <!-- ================= REQUESTS PAGE ================= -->
+<section id="page-requests" class="page-section hidden">
+
+  <!-- Header -->
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <h3 class="card-title">Maintenance Requests</h3>
+        <p class="text-muted">Track and manage all maintenance activities</p>
+      </div>
+      <button class="btn btn-primary">
+        <i class="fas fa-plus"></i> New Request
+      </button>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="card">
+    <div class="grid" style="grid-template-columns: 1fr auto auto; gap:1rem; align-items:center;">
+      <input id="requestSearch" class="form-control" placeholder="Search requests...">
+
+      <select id="statusFilter" class="form-control">
+        <option value="all">All Status</option>
+        <option value="new">New</option>
+        <option value="in_progress">In Progress</option>
+        <option value="repaired">Repaired</option>
+        <option value="scrap">Scrap</option>
+      </select>
+
+      <select id="typeFilter" class="form-control">
+        <option value="all">All Types</option>
+        <option value="corrective">Corrective</option>
+        <option value="preventive">Preventive</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="card table-container">
+    <table class="data-table" id="requestsTable">
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Equipment</th>
+          <th>Type</th>
+          <th>Status</th>
+          <th>Priority</th>
+          <th>Assigned To</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div id="noRequests" class="text-center hidden" style="padding:2rem">
+      <i class="fas fa-wrench fa-2x text-muted"></i>
+      <p>No requests found</p>
+    </div>
+  </div>
+
+  <!-- New Request Modal -->
+<div id="newRequestModal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Create Maintenance Request</h3>
+
+    <input id="reqSubject" placeholder="Subject" />
+    <textarea id="reqDescription" placeholder="Description"></textarea>
+
+    <select id="reqType">
+      <option value="corrective">Corrective</option>
+      <option value="preventive">Preventive</option>
+    </select>
+
+    <button onclick="createRequest()">Create</button>
+    <button onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+
+</section>
+
+
+            <!-- ================= SETTINGS ================= -->
+            <section id="page-settings" class="page-section hidden">
+                <div class="card">
+                    <h3 class="card-title">Settings</h3>
+                    <p>Update profile and preferences.</p>
+                </div>
+            </section>
+
+        </div>
+    </main>
+</div>
+
+<!-- CHART JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
