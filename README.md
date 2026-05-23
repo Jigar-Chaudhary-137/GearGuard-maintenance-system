@@ -86,37 +86,38 @@ Built during a Virtual Hackathon, the platform focuses on improving operational 
 
 ## 🔐 Login Portal
 
-<img src="screenshots/login.jpeg" width="100%"/>
+<img src="https://github.com/Jigar-Chaudhary-137/GearGuard-maintenance-system/blob/main/screenshots/login.jpeg?raw=true" width="100%"/>
 
 ---
 
 ## 📊 Dashboard
 
-<img src="screenshots/dashboard.jpeg" width="100%"/>
+<img src="https://github.com/Jigar-Chaudhary-137/GearGuard-maintenance-system/blob/main/screenshots/dashboard.jpeg?raw=true" width="100%"/>
 
 ---
 
 ## 📈 Reports & Analytics
 
-<img src="screenshots/reports.jpeg" width="100%"/>
+<img src="https://github.com/Jigar-Chaudhary-137/GearGuard-maintenance-system/blob/main/screenshots/reports.jpeg?raw=true" width="100%"/>
+<img src="https://github.com/Jigar-Chaudhary-137/GearGuard-maintenance-system/blob/main/screenshots/WhatsApp%20Image%202026-05-23%20at%2018.09.54.jpeg?raw=true" width="100%"/>
 
 ---
 
 ## 📅 Calendar Module
 
-<img src="screenshots/calendar.jpeg" width="100%"/>
+<img src="https://github.com/Jigar-Chaudhary-137/GearGuard-maintenance-system/blob/main/screenshots/Calender.jpeg?raw=true" width="100%"/>
 
 ---
 
 ## ⚙️ Settings Panel
 
-<img src="screenshots/settings.jpeg" width="100%"/>
+<img src="https://github.com/Jigar-Chaudhary-137/GearGuard-maintenance-system/blob/main/screenshots/Settings.jpeg?raw=true" width="100%"/>
 
 ---
 
 ## 🧑‍💼 Admin Panel
 
-<img src="screenshots/admin.jpeg" width="100%"/>
+<img src="https://github.com/Jigar-Chaudhary-137/GearGuard-maintenance-system/blob/main/screenshots/Admin%20panel.jpeg?raw=true" width="100%"/>
 
 ---
 
