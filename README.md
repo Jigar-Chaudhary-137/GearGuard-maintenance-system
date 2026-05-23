@@ -1,7 +1,7 @@
 # 🛠️ GearGuard — Enterprise Maintenance Management System
 
 <p align="center">
-  <img src="YOUR_BANNER_IMAGE" width="100%"/>
+  <img src="https://github.com/Jigar-Chaudhary-137/GearGuard-maintenance-system/blob/main/screenshots/banner%20image.png?raw=true" width="100%"/>
 </p>
 
 <p align="center">
